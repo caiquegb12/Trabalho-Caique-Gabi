@@ -15,17 +15,7 @@ app.get('/fornecedores', (req, res) => {
     })
 });
 
-app.post('/fornecedores', (req, res) => {
-    const {nome, email, telefone, cpf } = req.body;
 
-    db.query('INSERT INTO Fornecedores (nome, email, telefone, cpf) VALUES (?, ?, ?, ?)',[nome, email, telefone, cpf], (error, results) => {
-            if (error) {
-               res.status(500).json(`Houve um erro ao cadastrar o Fornecedores`)
-            }
-            res.status(201).json('Fornecedor cadastrado com sucesso');
-        }
-    );
-});
 
 app.delete('/fornecedores/:id', (req, res) => {
     const { id } = req.params;
